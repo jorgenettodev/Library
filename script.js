@@ -39,7 +39,7 @@ function showAllBooks() {
     }
 }
 
-// btn add
+// btn add book to grid
 const btnAddBook = document.querySelector('#btn__add');
 btnAddBook.addEventListener('click', (e) => {
     console.log('clicked');
@@ -48,29 +48,35 @@ btnAddBook.addEventListener('click', (e) => {
 // books__grid
 const booksGrid = document.querySelector('.books__grid');
 
-function createBook() {
+
+
+function createBook(book) {
+
+    // Receives a book as parameter, create a card and appends to the books__grid
+    
+
     let newBook = document.createElement('div');
     newBook.classList.add('book__card');
 
 
     const bookTitle = document.createElement('h2')
     bookTitle.classList.add('book__title');
-    bookTitle.innerText = 'Bazinga';
+    bookTitle.innerText = book.title;
 
     const bookAuthor = document.createElement('p')
     bookAuthor.classList.add('book__author');
-    bookAuthor.innerText = 'Bazinga Author';
+    bookAuthor.innerText = book.author;
 
     const bookPages = document.createElement('p')
     bookPages.classList.add('book__pages');
-    bookPages.innerText = '459 Pages';
+    bookPages.innerText = `${book.pages} pages`;
 
     
 
     // book buttons
 
     const btnReadStatus = document.createElement('button');
-    btnReadStatus.innerText = 'Already read'
+    btnReadStatus.innerText = book.readStatus;
     btnReadStatus.classList.add('btn__readStatus');
     btnReadStatus.classList.add('btn');
 
@@ -92,4 +98,10 @@ function createBook() {
     
 }
 
-createBook();
+// Create example books and adds to myLibrary array
+testBooks();
+
+// Takes the example books, create cards and appends to the books__grid.
+for (key in myLibrary) {
+    createBook(myLibrary[key]);
+}
