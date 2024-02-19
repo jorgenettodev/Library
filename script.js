@@ -115,6 +115,18 @@ let storedBooks = localStorage.getItem('myLibrary');
 storedBooks = JSON.parse(storedBooks);
 
 
-for (book in storedBooks) {
-    appendBookToGrid(storedBooks[book]);
-}
+// Load the books saved on the localStorage when the page is loaded.
+
+function loadBooks() {
+    window.addEventListener('load', (e) => {
+        console.log('carregou a página.')
+        for (book in storedBooks) {
+            appendBookToGrid(storedBooks[book]);
+            console.log(`upou um livro na página chamado ${storedBooks[book].title}`)
+        }
+    })
+};
+
+loadBooks();
+
+
