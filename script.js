@@ -21,7 +21,7 @@ function addBookToLibrary(book) {
 
 // create some books to test it.
 function testBooks() {
-    let book1 = new Book('O Cavaleiro preso na armadura','Robert Fisher', 62, 'reading');
+    let book1 = new Book('O Cavaleiro preso na armadura','Robert Fisher', 62, 'already read');
     // add book1 to library
     addBookToLibrary(book1);
 
@@ -38,3 +38,9 @@ function showAllBooks() {
         console.log(`Book name: ${myLibrary[key].info()}`);
     }
 }
+
+// btn add
+const btnAdd = document.querySelector('#btn__add');
+btnAdd.addEventListener('click', (e) => {
+    console.log('clicked');
+});
