@@ -50,7 +50,7 @@ const booksGrid = document.querySelector('.books__grid');
 
 
 
-function createBook(book) {
+function appendBookToGrid(book) {
 
     // Receives a book as parameter, create a card and appends to the books__grid
     
@@ -102,6 +102,19 @@ function createBook(book) {
 testBooks();
 
 // Takes the example books, create cards and appends to the books__grid.
-for (key in myLibrary) {
-    createBook(myLibrary[key]);
+
+
+
+// Save books on local Storage
+
+// transform the array in a string using JSON.stringify(array);
+const myLibraryString = JSON.stringify(myLibrary);
+localStorage.setItem('myLibrary', myLibraryString);
+
+let storedBooks = localStorage.getItem('myLibrary');
+storedBooks = JSON.parse(storedBooks);
+
+
+for (book in storedBooks) {
+    appendBookToGrid(storedBooks[book]);
 }
