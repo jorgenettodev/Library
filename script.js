@@ -111,13 +111,14 @@ testBooks();
 const myLibraryString = JSON.stringify(myLibrary);
 localStorage.setItem('myLibrary', myLibraryString);
 
+// get the books saved on local Storage and store them in another array called storeBooks
 let storedBooks = localStorage.getItem('myLibrary');
 storedBooks = JSON.parse(storedBooks);
 
 
 // Load the books saved on the localStorage when the page is loaded.
 
-function loadBooks() {
+function loadBooksOnThePage() {
     window.addEventListener('load', (e) => {
         console.log('carregou a página.')
         for (book in storedBooks) {
@@ -127,6 +128,6 @@ function loadBooks() {
     })
 };
 
-loadBooks();
+loadBooksOnThePage();
 
 
