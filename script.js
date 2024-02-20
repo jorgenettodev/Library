@@ -39,11 +39,6 @@ function showAllBooks() {
     }
 }
 
-// btn add book to grid
-const btnAddBook = document.querySelector('#btn__add');
-btnAddBook.addEventListener('click', (e) => {
-    console.log('clicked');
-});
 
 // books__grid
 const booksGrid = document.querySelector('.books__grid');
@@ -131,3 +126,11 @@ function loadBooksOnThePage() {
 loadBooksOnThePage();
 
 
+// modal
+
+const modal = document.querySelector("dialog");
+const openModal = document.querySelector("#btnOpenModal");
+
+openModal.addEventListener("click", () => {
+  modal.showModal();
+});

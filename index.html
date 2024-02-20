@@ -15,7 +15,33 @@
 
     <main>
         <!-- add button -->
-        <button class="btn__add btn" id="btn__add">add book</button>
+        <button class="btn__add btn" id="btnOpenModal">add book</button>
+
+        <!-- MODAL -->
+        <dialog class="modal">
+            <div class="modal__content">
+              <h2>ADD NEW BOOK</h2>
+              <ul class="modal__inputs">
+                <li>
+                  <input type="text" id="title" placeholder="Title"></input>
+                </li>
+                <li>
+                  <input type="text" id="author" placeholder="Author"></input>
+                </li>
+                <li>
+                  <input type="text" id="pages" placeholder="Nº of pages"></input>
+                </li>
+                <li>
+                  <label for="inputReadStatus">Have you read it?</label>
+                  <input type="checkbox" id="inputReadStatus"></input>
+                </li>
+                <li>
+                  <button id="btnConfirmNewBook">OK</button>
+                </li>
+              </ul>
+            </div>
+            
+          </dialog>
 
         <!-- grid books section -->
         <section class="books__container container">
