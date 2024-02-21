@@ -129,8 +129,15 @@ loadBooksOnThePage();
 // modal
 
 const modal = document.querySelector("dialog");
-const openModal = document.querySelector("#btnOpenModal");
+const btnOpenModal = document.querySelector("#btnOpenModal");
 
-openModal.addEventListener("click", () => {
+btnOpenModal.addEventListener("click", () => {
   modal.showModal();
+});
+
+// close modal
+const btnCloseModal = document.querySelector("#btnCancelModal");
+
+btnCloseModal.addEventListener("click", (e) => {
+    modal.close();
 });
