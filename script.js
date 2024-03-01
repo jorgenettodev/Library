@@ -123,6 +123,7 @@ function loadBooksOnThePage() {
     })
 };
 
+// Load the books when the page is loaded;
 loadBooksOnThePage();
 
 
@@ -141,3 +142,15 @@ const btnCloseModal = document.querySelector("#btnCancelModal");
 btnCloseModal.addEventListener("click", (e) => {
     modal.close();
 });
+
+// button for confirming the new book and closing the modal;
+const btnConfirmNewBook = document.querySelector("#btnConfirmNewBook");
+
+// get the inputs
+const inTitle = document.querySelector("#title");
+const inAuthor = document.querySelector("#author");
+const inPages = document.querySelector("#pages");
+const inReadStatus = document.querySelector("#inputReadStatus");
+
+
+
