@@ -1,5 +1,6 @@
 const myLibrary = [];
 
+// function to create a new book
 function Book(title, author, pages, readStatus) {
     this.title = title;
     this.author = author;
@@ -15,6 +16,7 @@ function Book(title, author, pages, readStatus) {
     }
 };
 
+// take a book as argument and push it to the myLibrary array
 function addBookToLibrary(book) {
     myLibrary.push(book);
 }
@@ -45,14 +47,11 @@ const booksGrid = document.querySelector('.books__grid');
 
 
 
+// Receives a book as parameter, create a card and appends to the books__grid
 function appendBookToGrid(book) {
-
-    // Receives a book as parameter, create a card and appends to the books__grid
-    
-
+    // Creates a book card and give classes for each book element, like title, author, pages.
     let newBook = document.createElement('div');
     newBook.classList.add('book__card');
-
 
     const bookTitle = document.createElement('h2')
     bookTitle.classList.add('book__title');
@@ -70,6 +69,7 @@ function appendBookToGrid(book) {
 
     // book buttons
 
+    // create the buttons for the book card.
     const btnReadStatus = document.createElement('button');
     btnReadStatus.innerText = book.readStatus;
     btnReadStatus.classList.add('btn__readStatus');
@@ -81,16 +81,15 @@ function appendBookToGrid(book) {
     btnDeleteBook.classList.add('btn__delete');
     btnDeleteBook.innerText = 'delete';
 
-    
+    // appends each new element to the book card.
     newBook.appendChild(bookTitle);
     newBook.appendChild(bookAuthor);
     newBook.appendChild(bookPages);
     newBook.appendChild(btnReadStatus);
     newBook.appendChild(btnDeleteBook);
 
+    // appends the newbook to the book grid.
     booksGrid.appendChild(newBook);
-
-    
 }
 
 // Create example books and adds to myLibrary array
