@@ -93,21 +93,17 @@ function appendBookToGrid(book) {
 }
 
 // Create example books and adds to myLibrary array
-testBooks();
-
-// Takes the example books, create cards and appends to the books__grid.
-
-
+// testBooks();
 
 // Save books on local Storage
 
 // transform the array in a string using JSON.stringify(array);
-const myLibraryString = JSON.stringify(myLibrary);
-localStorage.setItem('myLibrary', myLibraryString);
+// const myLibraryString = JSON.stringify(myLibrary);
+// localStorage.setItem('myLibrary', myLibraryString);
 
 // get the books saved on local Storage and store them in another array called storeBooks
-let storedBooks = localStorage.getItem('myLibrary');
-storedBooks = JSON.parse(storedBooks);
+// let storedBooks = localStorage.getItem('myLibrary');
+// storedBooks = JSON.parse(storedBooks);
 
 
 // Load the books saved on the localStorage when the page is loaded.
@@ -115,7 +111,10 @@ storedBooks = JSON.parse(storedBooks);
 function loadBooksOnThePage() {
     window.addEventListener('load', (e) => {
         console.log('carregou a página.')
-        for (book in storedBooks) {
+
+        let storedBooks = JSON.parse(localStorage.getItem('myLibrary')) || [];
+
+        for (const book in storedBooks) {
             appendBookToGrid(storedBooks[book]);
             console.log(`upou um livro na página chamado ${storedBooks[book].title}`)
         }
@@ -170,6 +169,9 @@ btnConfirmNewBook.addEventListener('click', () => {
     let temporaryBook = createTemporaryBook();
     console.log(temporaryBook);
     appendBookToGrid(temporaryBook);
+
+    myLibrary.push(temporaryBook); // add the new book to myLibrary array.
+    localStorage.setItem('myLibrary', JSON.stringify(myLibrary)); // update the localStorage with the new book on the myLibrary array.
     modal.close();
 
 })
