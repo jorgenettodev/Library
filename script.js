@@ -114,10 +114,13 @@ function loadBooksOnThePage() {
 
         let storedBooks = JSON.parse(localStorage.getItem('myLibrary')) || [];
 
-        for (const book in storedBooks) {
-            appendBookToGrid(storedBooks[book]);
-            console.log(`upou um livro na página chamado ${storedBooks[book].title}`)
+        for (const book of storedBooks) {
+            appendBookToGrid(book);
+            console.log(`upou um livro na página chamado ${book.title}`)
         }
+
+        // update myLibrary with storedBooks
+        myLibrary.push(...storedBooks);
     })
 };
 
@@ -145,12 +148,25 @@ btnCloseModal.addEventListener("click", (e) => {
 const btnConfirmNewBook = document.querySelector("#btnConfirmNewBook");
 
 
+// get the inputs
+const inTitle = document.querySelector("#title");
+const inAuthor = document.querySelector("#author");
+const inPages = document.querySelector("#pages");
+const inReadStatus = document.querySelector("#inputReadStatus");
+
+function clearInputs() {
+    inTitle.value = "";
+    inAuthor.value = "";
+    inPages.value = "";
+    inReadStatus.value = "";
+}
+
 function createTemporaryBook() {
     // get the inputs
-    const inTitle = document.querySelector("#title");
-    const inAuthor = document.querySelector("#author");
-    const inPages = document.querySelector("#pages");
-    const inReadStatus = document.querySelector("#inputReadStatus");
+    // const inTitle = document.querySelector("#title");
+    // const inAuthor = document.querySelector("#author");
+    // const inPages = document.querySelector("#pages");
+    // const inReadStatus = document.querySelector("#inputReadStatus");
 
     const tempBookTitle = inTitle.value;
     const tempBookAuthor = inAuthor.value;
@@ -160,9 +176,10 @@ function createTemporaryBook() {
 
     let temporaryBook = new Book(tempBookTitle, tempBookAuthor, tempBookPages, tempBookReadStatus);
 
-
+    clearInputs()
     return temporaryBook;
 }
+
 
 
 btnConfirmNewBook.addEventListener('click', () => {
@@ -172,6 +189,8 @@ btnConfirmNewBook.addEventListener('click', () => {
 
     myLibrary.push(temporaryBook); // add the new book to myLibrary array.
     localStorage.setItem('myLibrary', JSON.stringify(myLibrary)); // update the localStorage with the new book on the myLibrary array.
+
+
     modal.close();
 
 })
