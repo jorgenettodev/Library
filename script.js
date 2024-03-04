@@ -145,11 +145,31 @@ btnCloseModal.addEventListener("click", (e) => {
 // button for confirming the new book and closing the modal;
 const btnConfirmNewBook = document.querySelector("#btnConfirmNewBook");
 
-// get the inputs
-const inTitle = document.querySelector("#title");
-const inAuthor = document.querySelector("#author");
-const inPages = document.querySelector("#pages");
-const inReadStatus = document.querySelector("#inputReadStatus");
+
+function createTemporaryBook() {
+    // get the inputs
+    const inTitle = document.querySelector("#title");
+    const inAuthor = document.querySelector("#author");
+    const inPages = document.querySelector("#pages");
+    const inReadStatus = document.querySelector("#inputReadStatus");
+
+    const tempBookTitle = inTitle.value;
+    const tempBookAuthor = inAuthor.value;
+    const tempBookPages = inPages.value;
+    const tempBookReadStatus = inReadStatus.value;
 
 
+    let temporaryBook = new Book(tempBookTitle, tempBookAuthor, tempBookPages, tempBookReadStatus);
 
+
+    return temporaryBook;
+}
+
+
+btnConfirmNewBook.addEventListener('click', () => {
+    let temporaryBook = createTemporaryBook();
+    console.log(temporaryBook);
+    appendBookToGrid(temporaryBook);
+    modal.close();
+
+})
