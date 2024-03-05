@@ -159,7 +159,7 @@ function createTemporaryBook() {
 }
 
 
-
+// Create a new book book, then push to myLibrary array, and then update localStorage.
 btnConfirmNewBook.addEventListener('click', () => {
     let temporaryBook = createTemporaryBook();
     console.log(temporaryBook);
@@ -172,3 +172,20 @@ btnConfirmNewBook.addEventListener('click', () => {
     modal.close();
 
 })
+
+
+
+booksGrid.addEventListener('click', (e) => {
+    if (e.target.classList.contains('btn__delete')) {
+        console.log(e.target);
+        // find the current book
+        const bookCard = e.target.parentNode;
+        // get the book title
+        let bookCardTitle = bookCard.querySelector('.book__title')
+        .innerText;
+        console.log(bookCardTitle);
+
+    }
+
+
+});
