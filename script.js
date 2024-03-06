@@ -53,6 +53,12 @@ function appendBookToGrid(book) {
     btnReadStatus.classList.add('btn__readStatus');
     btnReadStatus.classList.add('btn');
 
+    if (inReadStatus.checked) {
+        btnReadStatus.classList.add('read');
+    } else {
+        btnReadStatus.classList.add('notRead');
+    }
+
 
     const btnDeleteBook = document.createElement('button');
     btnDeleteBook.classList.add('btn');
@@ -136,7 +142,7 @@ function clearInputs() {
     inTitle.value = "";
     inAuthor.value = "";
     inPages.value = "";
-    inReadStatus.checked = false;
+    // inReadStatus.checked = false;
 }
 
 function createTemporaryBook() {
@@ -168,7 +174,8 @@ btnConfirmNewBook.addEventListener('click', () => {
     myLibrary.push(temporaryBook); // add the new book to myLibrary array.
     localStorage.setItem('myLibrary', JSON.stringify(myLibrary)); // update the localStorage with the new book on the myLibrary array.
 
-
+    let tempReadStatus = document.querySelector('#inputReadStatus');
+    tempReadStatus.checked = false;
     modal.close();
 
 })
@@ -219,8 +226,13 @@ booksGrid.addEventListener('click', (e) => {
 
         if (actualReadStatus.innerText == read) {
             actualReadStatus.innerText = notRead;
+            actualReadStatus.classList.toggle('notRead');
+            actualReadStatus.classList.toggle('read');
+
         } else {
             actualReadStatus.innerText = read;
+            actualReadStatus.classList.toggle('read');
+            actualReadStatus.classList.toggle('notRead');
         }
     }
 });
