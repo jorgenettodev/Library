@@ -136,7 +136,7 @@ function clearInputs() {
     inTitle.value = "";
     inAuthor.value = "";
     inPages.value = "";
-    inReadStatus.value = "";
+    inReadStatus.checked = false;
 }
 
 function createTemporaryBook() {
@@ -149,7 +149,7 @@ function createTemporaryBook() {
     const tempBookTitle = inTitle.value;
     const tempBookAuthor = inAuthor.value;
     const tempBookPages = inPages.value;
-    const tempBookReadStatus = inReadStatus.value;
+    const tempBookReadStatus = (inReadStatus.checked) ? "read" : "not read";
 
 
     let temporaryBook = new Book(tempBookTitle, tempBookAuthor, tempBookPages, tempBookReadStatus);
