@@ -173,7 +173,7 @@ btnConfirmNewBook.addEventListener('click', () => {
 
 })
 
-
+// FEATURE: REMOVE BOOKS FROM GRID;
 
 booksGrid.addEventListener('click', (e) => {
     if (e.target.classList.contains('btn__delete')) {
@@ -205,10 +205,22 @@ booksGrid.addEventListener('click', (e) => {
 
             }
         }
-
-        // update the myLibrary localStorage
-
     }
+});
 
+// change read status of each book individually
+booksGrid.addEventListener('click', (e) => {
+    if (e.target.classList.contains('btn__readStatus')) {
+        let actualReadStatus = e.target;
+        // console.log(actualReadStatus);
+    
+        const read = "read";
+        const notRead = "not read";
 
+        if (actualReadStatus.innerText == read) {
+            actualReadStatus.innerText = notRead;
+        } else {
+            actualReadStatus.innerText = read;
+        }
+    }
 });
