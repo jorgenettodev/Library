@@ -168,7 +168,7 @@ function createTemporaryBook() {
 // Create a new book book, then push to myLibrary array, and then update localStorage.
 btnConfirmNewBook.addEventListener('click', () => {
     let temporaryBook = createTemporaryBook();
-    console.log(temporaryBook);
+    // console.log(temporaryBook);
     appendBookToGrid(temporaryBook);
 
     myLibrary.push(temporaryBook); // add the new book to myLibrary array.
@@ -184,24 +184,24 @@ btnConfirmNewBook.addEventListener('click', () => {
 
 booksGrid.addEventListener('click', (e) => {
     if (e.target.classList.contains('btn__delete')) {
-        console.log(e.target);
+        // console.log(e.target);
         // find the current book
         const bookCard = e.target.parentNode;
         // get the book title
         let bookCardTitle = bookCard.querySelector('.book__title')
         .innerText;
         // bookCard.remove();
-        console.log(bookCardTitle);
+        // console.log(bookCardTitle);
         
         // Remove the book from the myLibrary array;
 
         for (const book of myLibrary) {
             if (book.title == bookCardTitle) {
-                console.log(`Este console log mostra qual o livro no array myLibrary: ${book.title}`);
+                // console.log(`Este console log mostra qual o livro no array myLibrary: ${book.title}`);
 
                 // find the index of the book to remove
                 let indexOfBookToRemove = myLibrary.findIndex(book => book.title === bookCardTitle);
-                console.log(indexOfBookToRemove);
+                // console.log(indexOfBookToRemove);
 
                 // remove the book from the myLibrary array and update the localStorage;
                 if (indexOfBookToRemove !== -1) {
