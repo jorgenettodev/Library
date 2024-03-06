@@ -100,7 +100,7 @@ function loadBooksOnThePage() {
 
         for (const book of storedBooks) {
             appendBookToGrid(book);
-            console.log(`upou um livro na página chamado ${book.title}`)
+            // console.log(`upou um livro na página chamado ${book.title}`)
         }
 
         // update myLibrary with storedBooks
