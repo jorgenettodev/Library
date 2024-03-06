@@ -94,7 +94,7 @@ function appendBookToGrid(book) {
 
 function loadBooksOnThePage() {
     window.addEventListener('load', (e) => {
-        console.log('carregou a página.')
+        // console.log('carregou a página.')
 
         let storedBooks = JSON.parse(localStorage.getItem('myLibrary')) || [];
 
